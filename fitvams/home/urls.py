@@ -3,6 +3,7 @@ from flask_login import login_required,current_user
 from fitvams.home import home
 
 @home.route("/")
+@login_required
 def index():
     return render_template('home/home.html')
 
