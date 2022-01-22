@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1.0,shrink-to-fit=no,user-scalable=0'>
+		<title>
+		  Fitvams|RegisterPage
+		</title>
+		 	<link rel="stylesheet" type="text/css" href="{{url_for('users.static',filename='/user/css/create.css')}}">
+		 		<script type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}">
+		 		</script>
+	</head>
+	<body>
+		<section id="login-section">
+			<h2>RegisterationForm</h2>
+			<form method='post' class='serial'>
+				{{form.csrf_token}}
+				{{form.token_hex}}
+				{{form.firstname(placeholder="Firstname",autofocus=True)}}
+				{{form.secondname(placeholder="Secondname",autofocus=True)}}
+				{{form.lastname(placeholder="Lastname",autofocus=True)}}
+			  {{form.email(placeholder="Email address",autofocus=True)}}
+			  {{form.password(placeholder="Password")}}
+			  {{form.re_pass(placeholder="Re-Type Password")}}
+			 
+			  {{form.gender.label}}
+			  <div class='radios'>
+			  {{form.gender()}}
+			  </div>
+			  {{form.submit( class='btn')}}
+				<span> Have an account?  <a href="{{url_for('users.login')}}">Login !</a></span>
+			</form>
+		</section>
+  </body>
+  <script type="text/javascript" src="{{url_for('users.static',filename='user/js/register.js')}}"></script>
+  <script type="text/javascript">
+  
+  </script>
+</html>

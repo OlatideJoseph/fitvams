@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1.0,shrink-to-fit=no,user-scalable=0'>
+		<title>
+		   Fitvams|LoginPage
+		</title>
+		 	<link rel="stylesheet" type="text/css" href="{{url_for('users.static',filename='/user/css/login.css')}}">
+		 		<script type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}">
+		 			var csrf_token = "{{ csrf_token() }}";
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrf_token);
+            }
+        }
+    });
+		 		</script>
+	</head>
+	<body>
+		<section id="login-section">
+			<h2>LoginForm</h2>
+			<form method='post' class='serial'>
+				{{form.csrf_token}}
+				{{form.token_hex}}
+			  {{form.email(placeholder="Username or Email",autofocus=True)}}
+			  {{form.password(placeholder="Password")}}
+			  {{form.remember.label}}
+			  {{form.remember()}}
+			  <small class='login-small'><a href="#">Forgot password? </a></small>
+			  {{form.submit( class='btn')}}
+				<span>Don't have an account?  <a href="{{url_for('users.register')}}">Register</a></span>
+			</form>
+		</section>
+  </body>
+  <script type="text/javascript" src="{{url_for('users.static',filename='user/js/login.js')}}"></script>
+  <script type="text/javascript">
+  
+  </script>
+</html>

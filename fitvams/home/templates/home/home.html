@@ -1,0 +1,14 @@
+{% extends 'home/base.html'%}
+{%block head%}
+   <title>Fitvams | Home Page !</title>
+   <link rel='stylesheet' type='text/css' href="{{url_for('home.static',filename='css/home.css')}}">
+{% endblock%}
+{% block body%}
+   <p>{{current_user.firstname}} welcome to <em>fitvams</em> media of anything you want ? maybe or maybe not who knows any way all I know is that I can act as a Private,Public and Secret messenger, isn't that cool ?.
+   <div class="demo-img">
+   	  <img src="{{url_for('home.static',filename='img/gfx.jpg')}}" alt='blue-clouds'/>
+   	  PlanetBlue
+   	</div>
+   	Here you can see all the cool stuff I can do like send message be your blog site and other stuff that even I don't know about just check me and you'll see.
+   	</p>
+{% endblock %}
